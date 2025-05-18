@@ -1,6 +1,8 @@
 # 🗳️ VoteLedger 
-## :A Smart & Secure Voting Platform
-VoteLedger is a modern, secure, and transparent electronic voting platform built using Streamlit and blockchain technology. It supports manual and QR code voting, real-time vote verification, and fraud detection, ensuring the integrity of democratic processes in organizations, institutions, or public elections.
+## A Smart & Secure Voting Platform
+VoteLedger is a modern, secure, and transparent electronic voting platform built using Streamlit and blockchain technology. It supports both manual and QR code voting, real-time vote verification, and fraud detection, ensuring the integrity of democratic processes in organizations, institutions, or public elections. All votes are transparently recorded on the blockchain, allowing for real-time result updates and robust tamper resistance.
+
+To use VoteLedger, simply run the application by executing the following command in your terminal:
 
 ### 🚀 Features
 ✅ Blockchain-Powered Security
