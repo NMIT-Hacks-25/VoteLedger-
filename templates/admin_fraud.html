@@ -1,0 +1,17 @@
+<h4>AI Fraud Detection</h4>
+{% if not flagged_df.empty %}
+<div class="alert alert-warning">Suspicious registrations detected:</div>
+<table class="table">
+    <tr><th>Voter ID</th><th>Name</th><th>Email</th><th>Domain</th></tr>
+    {% for idx, v in flagged_df.iterrows() %}
+        <tr>
+            <td>{{ v['Voter ID'] }}</td>
+            <td>{{ v['Name'] }}</td>
+            <td>{{ v['Email'] }}</td>
+            <td>{{ v['Domain'] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+<div class="alert alert-success">No suspicious activity detected.</div>
+{% endif %}

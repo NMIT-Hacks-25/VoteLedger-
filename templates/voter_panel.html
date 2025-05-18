@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-linkbar">
+    <a href="{{ url_for('voter_panel', tab='registration') }}" class="admin-link {% if tab == 'registration' %}active{% endif %}">Registration</a>
+    <a href="{{ url_for('voter_panel', tab='validator') }}" class="admin-link {% if tab == 'validator' %}active{% endif %}">Vote Validator</a>
+</div>
+
+<div class="admin-content">
+    {% if tab == 'registration' %}
+        {% include "voter_registration.html" %}
+    {% elif tab == 'validator' %}
+        {% include "voter_validator.html" %}
+    {% endif %}
+</div>
+{% endblock %}

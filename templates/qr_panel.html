@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>QR Voting Panel</h1>
+{% for cand in candidates %}
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-2"><img src="data:image/png;base64,{{ qr_images[cand] }}" class="img-fluid"></div>
+            <div class="col-md-8"><h3>{{ cand }}</h3></div>
+            <div class="col-md-2">
+                <a href="{{ url_for('scan_qr', candidate=cand) }}" class="btn btn-success">Simulate QR Vote</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<h3>QR Votes Count</h3>
+<ul>
+    {% for cand, count in qr_vote_counts.items() %}
+        <li>{{ cand }}: {{ count }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

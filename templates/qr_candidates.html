@@ -1,0 +1,13 @@
+<h4>Candidates QR Code</h4>
+{% if candidate_list %}
+    <div class="row">
+    {% for cand in candidate_list %}
+        <div class="col-md-4 mb-3">
+            <img src="data:image/png;base64,{{ qr_images[cand] }}" alt="QR for {{ cand }}">
+            <p><strong>{{ cand }}</strong></p>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+<div class="alert alert-info">No candidates yet. Add candidates in the Admin Panel.</div>
+{% endif %}

@@ -1,0 +1,22 @@
+<h4>Voters Table</h4>
+{% if votes_table %}
+<table class="table">
+    <tr>
+        <th>Voter ID</th><th>Name</th><th>Email</th><th>Domain</th>
+        <th>Candidate</th><th>Receipt</th><th>Timestamp</th>
+    </tr>
+    {% for row in votes_table %}
+    <tr>
+        <td>{{ row['Voter ID'] }}</td>
+        <td>{{ row['Name'] }}</td>
+        <td>{{ row['Email'] }}</td>
+        <td>{{ row['Domain'] }}</td>
+        <td>{{ row['Candidate'] }}</td>
+        <td>{{ row['Receipt'] }}</td>
+        <td>{{ row['Timestamp'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No votes cast yet.</p>
+{% endif %}

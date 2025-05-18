@@ -1,0 +1,10 @@
+<h4>Check Vote by Receipt</h4>
+<form method="post" action="{{ url_for('voter_panel', tab='validator') }}">
+    <div class="mb-3">
+        <input type="text" class="form-control" name="check_receipt" placeholder="Enter your receipt ID to verify vote">
+    </div>
+    <button class="btn btn-info" type="submit">Check Vote</button>
+</form>
+{% if check_result %}
+<div class="alert alert-info mt-3">{{ check_result }}</div>
+{% endif %}

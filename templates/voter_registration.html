@@ -1,0 +1,36 @@
+{% if message %}
+<div class="alert alert-info">{{ message }}</div>
+{% endif %}
+<h4>Voter Registration</h4>
+<form method="post" action="{{ url_for('voter_panel', tab='registration') }}">
+    <div class="mb-3">
+        <input type="text" class="form-control" name="voter_id" placeholder="Voter ID">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" name="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+        <input type="email" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" name="domain" placeholder="Domain">
+    </div>
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+<h4 class="mt-4">Vote Casting</h4>
+<form method="post" action="{{ url_for('voter_panel', tab='registration') }}">
+    <div class="mb-3">
+        <input type="text" class="form-control" name="voter_id_vote" placeholder="Enter your Voter ID to Vote">
+    </div>
+    <div class="mb-3">
+        <select class="form-select" name="candidate_vote">
+            {% for cand in candidate_list %}
+                <option value="{{ cand }}">{{ cand }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-success" type="submit" name="vote_action" value="vote">Cast Vote</button>
+</form>
+{% if vote_message %}
+<div class="alert alert-info mt-3">{{ vote_message }}</div>
+{% endif %}

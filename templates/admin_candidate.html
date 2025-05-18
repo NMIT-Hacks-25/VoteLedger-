@@ -1,0 +1,29 @@
+{% if message %}
+<div class="alert alert-info">{{ message }}</div>
+{% endif %}
+<h4>Add Candidate</h4>
+<form method="post" action="{{ url_for('admin_panel', tab='candidate') }}">
+    <div class="mb-3">
+        <input type="text" class="form-control" name="new_candidate" placeholder="Candidate Name" required>
+    </div>
+    <button type="submit" name="action" value="add" class="btn btn-primary">Add Candidate</button>
+</form>
+<h4 class="mt-4">Remove Candidate</h4>
+<form method="post" action="{{ url_for('admin_panel', tab='candidate') }}">
+    <div class="mb-3">
+        <select class="form-select" name="remove_candidate">
+            {% for cand in candidate_list %}
+                <option value="{{ cand }}">{{ cand }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" name="action" value="remove" class="btn btn-danger">Remove Candidate</button>
+</form>
+<h5 class="mt-4">Current Candidates:</h5>
+<ul>
+    {% for cand in candidate_list %}
+        <li>{{ cand }}</li>
+    {% else %}
+        <li>No candidates added yet.</li>
+    {% endfor %}
+</ul>

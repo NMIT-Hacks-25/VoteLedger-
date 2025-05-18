@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-linkbar">
+    <a href="{{ url_for('qr_code_voting', tab='candidates') }}" class="admin-link {% if tab == 'candidates' %}active{% endif %}">Candidates QR Code</a>
+    <a href="{{ url_for('qr_code_voting', tab='scanner') }}" class="admin-link {% if tab == 'scanner' %}active{% endif %}">QR Scanner</a>
+    <a href="{{ url_for('qr_code_voting', tab='tally') }}" class="admin-link {% if tab == 'tally' %}active{% endif %}">Live QR Vote Tally</a>
+</div>
+
+<div class="admin-content">
+    {% if tab == 'candidates' %}
+        {% include "qr_candidates.html" %}
+    {% elif tab == 'scanner' %}
+        {% include "qr_scanner.html" %}
+    {% elif tab == 'tally' %}
+        {% include "qr_tally.html" %}
+    {% endif %}
+</div>
+{% endblock %}

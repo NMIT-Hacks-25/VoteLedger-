@@ -1,0 +1,19 @@
+
+{% if message %}
+<div class="alert alert-info">{{ message }}</div>
+{% endif %}
+<h4>Mine Block</h4>
+<form method="post" action="{{ url_for('admin_panel', tab='mine') }}">
+    <button type="submit" name="action" value="mine" class="btn btn-warning">Mine Pending Votes</button>
+</form>
+<h4 class="mt-4">Results</h4>
+{% if results %}
+<table class="table">
+    <tr><th>Candidate</th><th>Votes</th></tr>
+    {% for cand, votes in results.items() %}
+        <tr><td>{{ cand }}</td><td>{{ votes }}</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No votes yet.</p>
+{% endif %}

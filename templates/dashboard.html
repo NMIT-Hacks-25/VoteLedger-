@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-header centered-brand">
+    <span class="dashboard-brand">VoteLedger</span>
+</div>
+
+<div class="dashboard-content">
+    <div class="dashboard-row">
+        <div class="dashboard-card">
+            <h5>Candidates</h5>
+            <p>{{ num_candidates }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h5>Registered Voters</h5>
+            <p>{{ num_voters }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h5>Total Votes</h5>
+            <p>{{ total_votes }}</p>
+        </div>
+        <div class="dashboard-card">
+            <h5>Turnout</h5>
+            <p>{{ turnout }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

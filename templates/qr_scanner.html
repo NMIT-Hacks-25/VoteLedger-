@@ -1,0 +1,18 @@
+<h4>QR Scanner</h4>
+{% if candidate_list %}
+<form method="post" action="{{ url_for('qr_code_voting', tab='scanner') }}">
+    <div class="mb-3">
+        <select class="form-select" name="selected_cand">
+            {% for cand in candidate_list %}
+                <option value="{{ cand }}">{{ cand }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn btn-success" type="submit">Scan QR (Simulate Vote)</button>
+</form>
+{% if message %}
+<div class="alert alert-info mt-3">{{ message }}</div>
+{% endif %}
+{% else %}
+<div class="alert alert-info">Add candidates first to simulate QR voting.</div>
+{% endif %}

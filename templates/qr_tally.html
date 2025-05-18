@@ -1,0 +1,11 @@
+<h4>Live QR Vote Tally</h4>
+{% if qr_vote_counts %}
+<table class="table">
+    <tr><th>Candidate</th><th>QR Votes</th></tr>
+    {% for cand, votes in qr_vote_counts.items() %}
+        <tr><td>{{ cand }}</td><td>{{ votes }}</td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<div class="alert alert-info">No QR votes yet.</div>
+{% endif %}
